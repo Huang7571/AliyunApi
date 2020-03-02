@@ -163,10 +163,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Administrator.cs" />
+    <Compile Include="Models\BigType.cs" />
     <Compile Include="Models\DBHelper.cs" />
     <Compile Include="Models\MenuInfo.cs" />
     <Compile Include="Models\Merchant.cs" />
     <Compile Include="Models\PermissionTypes.cs" />
+    <Compile Include="Models\Shop.cs" />
+    <Compile Include="Models\ShopSize.cs" />
+    <Compile Include="Models\SmallType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +182,9 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="obj\Debug\AliyunApi.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\AliyunApi.dll" />
+    <Content Include="obj\Debug\AliyunApi.pdb" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -199,6 +206,10 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="obj\Debug\AliyunApi.csproj.CopyComplete" />
+    <Content Include="obj\Debug\AliyunApi.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\AliyunApi.csprojAssemblyReference.cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -222,6 +233,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
