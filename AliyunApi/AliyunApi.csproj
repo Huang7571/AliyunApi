@@ -162,7 +162,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Administrator.cs" />
     <Compile Include="Models\DBHelper.cs" />
+    <Compile Include="Models\MenuInfo.cs" />
+    <Compile Include="Models\Merchant.cs" />
+    <Compile Include="Models\PermissionTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
