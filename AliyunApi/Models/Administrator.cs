@@ -8,7 +8,7 @@ namespace AliyunApi.Models
 	public class Administrator//管理员表
 	{
 		/// <summary>
-		/// 管理员编号
+		/// 管理员编号ss
 		/// </summary>
 		public int Aid                  { get; set; }
 		/// <summary>
