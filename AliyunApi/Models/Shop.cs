@@ -41,7 +41,7 @@ namespace AliyunApi.Models
         /// <summary>
         /// 商品积分
         /// </summary>
-        public int Sscore { get; set; }
+        public decimal Sscore { get; set; }
         /// <summary>
         /// 商品描述
         /// </summary>
@@ -61,7 +61,7 @@ namespace AliyunApi.Models
         /// <summary>
         /// 审核状态	通过，未通过
         /// </summary>
-        public bool Saudi { get; set; }
+        public bool Saudit { get; set; }
         /// <summary>
         /// 外键（商品大类表）
         /// </summary>
