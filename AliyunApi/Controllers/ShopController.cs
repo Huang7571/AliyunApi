@@ -42,7 +42,7 @@ namespace AliyunApi.Controllers
         /// <returns></returns>
         public int PostShop(Shop model)
         {
-            string sql = $"insert into Shop values('{model.Stype}','{model.Sname}','{model.Stitle}','{model.Simg}','{model.Ssize}','{model.Sprice}','{model.Sscore}','{model.Sdescribe}','{model.Safter}','{model.Stime}','{model.Sstate}','{model.Saudit}','{model.Btid}','{model.Stid}','{model.Ssid}','{model.MerchantId}')";
+            string sql = $"insert into Shop values('{model.Stype}','{model.Sname}','{model.Stitle}','{model.Simg}','{model.Scolor}','{model.Ssize}','{model.Ssnum}',{model.Sstock},{model.Sprice},{model.Sscore},'{model.Sdescribe}','{model.Safter}','{0}','{model.Sstate}',{0},{model.Btid},{model.Stid},'{DateTime.Now}',{model.MerchantId});";
             return DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
@@ -96,7 +96,7 @@ namespace AliyunApi.Controllers
         /// <returns></returns>
         public int UpdateShop(Shop model)
         {
-            string sql = $"update Shop set Stype='{model.Stype}',Sname='{model.Sname}',Stitle='{model.Stitle}',Simg='{model.Simg}',Sprice='{model.Sprice}',Ssize='{model.Ssize}',Sscore='{model.Sscore}',Sdescribe='{model.Sdescribe}',Safter='{model.Safter}',Stime='{model.Stime}',Sstate='{model.Sstate}',Saudit='{model.Saudit}',Btid='{model.Btid}',Stid='{model.Stid}',Ssid='{model.Ssid}',MerchantId='{model.MerchantId}'";
+            string sql = $"update Shop set Stype='{model.Stype}',Sname='{model.Sname}',Stitle='{model.Stitle}',Simg='{model.Simg}',Sprice='{model.Sprice}',Ssize='{model.Ssize}',Sscore='{model.Sscore}',Sdescribe='{model.Sdescribe}',Safter='{model.Safter}',Stime='{model.Stime}',Sstate='{model.Sstate}',Saudit='{model.Saudit}',Btid='{model.Btid}',Stid='{model.Stid}',Sstock='{model.Sstock}',Scolor='{model.Scolor}',Ssnum='{model.Ssnum}'";
             return DBHelper.ExecuteNonQuery(sql);
         }
     }
