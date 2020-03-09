@@ -167,7 +167,9 @@
     <Compile Include="Models\DBHelper.cs" />
     <Compile Include="Models\MenuInfo.cs" />
     <Compile Include="Models\Merchant.cs" />
+    <Compile Include="Models\Pager.cs" />
     <Compile Include="Models\PermissionTypes.cs" />
+    <Compile Include="Models\ReturnModel.cs" />
     <Compile Include="Models\Shop.cs" />
     <Compile Include="Models\SmallType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -225,6 +227,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
