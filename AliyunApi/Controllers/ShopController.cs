@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.Http;
 using AliyunApi.Models;
 using Newtonsoft.Json;
+using System.Configuration;
 
 namespace AliyunApi.Controllers
 {
@@ -19,6 +20,7 @@ namespace AliyunApi.Controllers
     /// </summary>
     public class ShopController : ApiController
     {
+        string Mysql = ConfigurationManager.ConnectionStrings["Sqlconn"].ToString();
         /// <summary>
         /// 大类表类型添加
         /// </summary>
@@ -54,8 +56,16 @@ namespace AliyunApi.Controllers
         /// <returns></returns>
         public List<BigType> GetBigType()
         {
-            string sql = "select * from BigType";
-            return DBHelper.GetToList<BigType>(sql);
+            using (SqlConnection coon = new SqlConnection(Mysql))
+            {
+                SqlCommand cmd = coon.CreateCommand();
+                string sql = "select * from BigType";
+                cmd.CommandText = sql;
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("dt");
+                sda.Fill(dt);
+                return JsonConvert.DeserializeObject<List<BigType>>(JsonConvert.SerializeObject(dt));
+            }
         }
         /// <summary>
         /// 小类表展示
@@ -63,7 +73,7 @@ namespace AliyunApi.Controllers
         /// <returns></returns>
         public List<SmallType> GetSmallType()
         {
-            using (SqlConnection coon=new SqlConnection("Data Source=.;Initial Catalog=Shop;Integrated Security=True"))
+            using (SqlConnection coon = new SqlConnection(Mysql))
             {
                 SqlCommand cmd = coon.CreateCommand();
                 string sql = "select * from SmallType";
@@ -73,7 +83,7 @@ namespace AliyunApi.Controllers
                 sda.Fill(dt);
                 return JsonConvert.DeserializeObject<List<SmallType>>(JsonConvert.SerializeObject(dt));
             }
-            
+
         }
         /// <summary>
         /// 商品展示
@@ -128,7 +138,7 @@ namespace AliyunApi.Controllers
         /// <returns></returns>
         public int UpdateShop(Shop model)
         {
-            string sql = $"update Shop set Stype='{model.Stype}',Sname='{model.Sname}',Stitle='{model.Stitle}',Simg='{model.Simg}',Sprice='{model.Sprice}',Ssize='{model.Ssize}',Sscore='{model.Sscore}',Sdescribe='{model.Sdescribe}',Safter='{model.Safter}',Stime='{model.Stime}',Sstate='{model.Sstate}',Saudit='{model.Saudit}',Btid='{model.Btid}',Stid='{model.Stid}',Sstock='{model.Sstock}',Scolor='{model.Scolor}',Ssnum='{model.Ssnum}' where Sid={model.Sid}";
+            string sql = $"update Shop set Stype='{model.Stype}',Sname='{model.Sname}',Stitle='{model.Stitle}',Simg='{model.Simg}',Sprice='{model.Sprice}',Ssize='{model.Ssize}',Sscore='{model.Sscore}',Sdescribe='{model.Sdescribe}',Safter='{model.Safter}',Stime='{model.Stime}',Sstate='{model.Sstate}',Btid='{model.Btid}',Stid='{model.Stid}',Sstock='{model.Sstock}',Scolor='{model.Scolor}',Ssnum='{model.Ssnum}' where Sid={model.Sid}";
             return DBHelper.ExecuteNonQuery(sql);
         }
         TimeSpan tspan = DateTime.Now - new DateTime(1970, 1, 1);
@@ -167,8 +177,9 @@ namespace AliyunApi.Controllers
 /// </summary>
 public class DBHelper
 {
+    static string Mysql = ConfigurationManager.ConnectionStrings["Sqlconn"].ToString();
     //连接数据库
-    static SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=Shop;Integrated Security=True");
+    static SqlConnection conn = new SqlConnection(Mysql);
     static SqlDataReader sdr;
     /// <summary>
     /// 获取数据流  查询、显示、绑定下拉
