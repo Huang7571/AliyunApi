@@ -10,6 +10,9 @@ namespace AliyunApi.Models
     /// </summary>
     public class ReturnModel
     {
+		/// <summary>
+		/// 大黄
+		/// </summary>
         public List<Shop> list { get; set; }
         public int TotalCount { get; set; }
     }
