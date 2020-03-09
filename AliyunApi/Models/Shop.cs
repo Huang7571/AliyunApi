@@ -31,9 +31,21 @@ namespace AliyunApi.Models
         /// </summary>
         public string Simg { get; set; }
         /// <summary>
-        /// 商品规格
+        /// 商品颜色
         /// </summary>
-        public bool Ssize { get; set; }
+        public string Scolor { get; set; }
+        /// <summary>
+        /// 商品大小
+        /// </summary>
+        public string Ssize { get; set; }
+        /// <summary>
+        /// 商品型号
+        /// </summary>
+        public string Ssnum { get; set; }
+        /// <summary>
+        /// 商品库存量
+        /// </summary>
+        public int Sstock { get; set; }
         /// <summary>
         /// 商品价格
         /// </summary>
@@ -63,6 +75,10 @@ namespace AliyunApi.Models
         /// </summary>
         public bool Saudit { get; set; }
         /// <summary>
+        /// 商品时间
+        /// </summary>
+        public DateTime Sdatetime { get; set; }
+        /// <summary>
         /// 外键（商品大类表）
         /// </summary>
         public int Btid { get; set; }
@@ -70,10 +86,6 @@ namespace AliyunApi.Models
         /// 外键（商品小类表）
         /// </summary>
         public int Stid { get; set; }
-        /// <summary>
-        /// 外键（商品规格表）
-        /// </summary>
-        public int Ssid { get; set; }
         /// <summary>
         /// 商家ID
         /// </summary>
