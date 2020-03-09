@@ -8,6 +8,7 @@ using AliyunApi.Models;
 using System.Data.SqlClient;
 using System.Reflection;
 using System.Data;
+using Newtonsoft.Json;
 namespace AliyunApi.Controllers
 {
 	public class PermissionController : ApiController
@@ -18,9 +19,18 @@ namespace AliyunApi.Controllers
 		/// </summary>
 		/// <param name="AdministratorName"></param>
 		/// <returns></returns>
-		public DataTable GetAdministrator(string AdministratorName)
+		public DataTable GetAdministrator(string MerchantName)
 		{
-			string sql = $"select * from Administratorsgroup a join Administrator b on a.Aid=b.Aid join MenuInfo c on a.Mid=c.Mid where b.AdministratorName='{AdministratorName}'";//显示用户对应的权限
+			string Yonghu = @"select * ,(case MerchantState when 1 then '启用' else '禁用' end) as MState
+ from Merchant a join Administrator b on a.Aid = b.Aid where MerchantName ='" + MerchantName + "'";//显示用户信息
+			SqlDataAdapter sqlData = new SqlDataAdapter(Yonghu, con);
+			DataTable dataTable = new DataTable("Datatable");
+			sqlData.Fill(dataTable);
+			List<Merchant> list = JsonConvert.DeserializeObject<List<Merchant>>(JsonConvert.SerializeObject(dataTable));
+			Merchant merchant = list.FirstOrDefault();
+			string sql = $@"select a.AdministratorName,stuff((select ','+MenuName from view_Menu 
+where a.AdministratorName = AdministratorName for xml path('')),1,1,'') as MenuName
+from view_Menu as a group by AdministratorName having a.AdministratorName = '{merchant.AdministratorName}'";//显示用户对应的权限
 			SqlDataAdapter ap = new SqlDataAdapter(sql, con);
 			DataTable table = new DataTable("Mytable");
 			ap.Fill(table);
@@ -33,7 +43,7 @@ namespace AliyunApi.Controllers
 		/// <param name="Permission"></param>
 		/// <param name="Aid"></param>
 		/// <returns></returns>
-		public int PutAdministrator(string Permission, int Aid)
+		public int GetPer(string Permission, int Aid)
 		{
 			con.Open();
 			string[] Ps = Permission.Split(',');//分割字符串
@@ -59,7 +69,17 @@ namespace AliyunApi.Controllers
 			}
 
 		}
-
+		/// <summary>
+		/// 管理员下拉
+		/// </summary>
+		/// <returns></returns>
+		public DataTable GetAdmin()
+		{
+			SqlDataAdapter ap = new SqlDataAdapter("select * from Administrator", con);
+			DataTable table = new DataTable("Mytable");
+			ap.Fill(table);
+			return table;
+		}
 
 	}
 

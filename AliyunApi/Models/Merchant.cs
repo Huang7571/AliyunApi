@@ -10,31 +10,38 @@ namespace AliyunApi.Models
 		/// <summary>
 		/// 商家编号
 		/// </summary>
-		public int MerchantId		 { get; set; }
+		public int MerchantId { get; set; }
 		/// <summary>
 		/// 商家名称
 		/// </summary>
-		public string MerchantName	 { get; set; }
+		public string MerchantName { get; set; }
 		/// <summary>
 		/// 商家邮箱
 		/// </summary>
-		public string MerchantEmail	 { get; set; }
+		public string MerchantEmail { get; set; }
 		/// <summary>
 		/// 商家密码
 		/// </summary>
-		public string MerchantPwd		 { get; set; }
+		public string MerchantPwd { get; set; }
 		/// <summary>
 		/// 商家备注
 		/// </summary>
-		public string MerchantContent	 { get; set; }
+		public string MerchantContent { get; set; }
 		/// <summary>
 		/// 权限Id（关联权限表）
 		/// </summary>
-		public int Aid		         { get; set; }
+		public int Aid { get; set; }
 		/// <summary>
 		/// 状态
 		/// </summary>
-		public int MerchantState	 { get; set; }
-
+		public int MerchantState { get; set; }
+		/// <summary>
+		/// 管理员名字
+		/// </summary>
+		public string AdministratorName { get; set; }
+		/// <summary>
+		/// 状态名称
+		/// </summary>
+		public string MState { get; set; }
 	}
 }

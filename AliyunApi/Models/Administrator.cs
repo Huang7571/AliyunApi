@@ -16,10 +16,6 @@ namespace AliyunApi.Models
 		/// </summary>
 		public string AdministratorName    { get; set; }
 		/// <summary>
-		/// 权限编号
-		/// </summary>
-		public int Mid                  { get; set; }
-		/// <summary>
 		/// 是否启用
 		/// </summary>
 		public int Menable              { get; set; }
