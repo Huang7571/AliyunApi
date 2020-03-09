@@ -15,7 +15,7 @@ namespace AliyunApi.Controllers
 	{
 		SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=ShopingOA;Integrated Security=True");
 		/// <summary>
-		/// 显示权限
+		/// 显示权限晋力
 		/// </summary>
 		/// <param name="AdministratorName"></param>
 		/// <returns></returns>
