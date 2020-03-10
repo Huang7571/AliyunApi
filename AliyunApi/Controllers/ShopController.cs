@@ -91,7 +91,7 @@ namespace AliyunApi.Controllers
         /// <returns></returns>
         public ReturnModel PostShopShow(Pager pager)
         {
-            using (SqlConnection coon = new SqlConnection("Data Source=.;Initial Catalog=Shop;Integrated Security=True"))
+            using (SqlConnection coon = new SqlConnection(Mysql))
             {
                 SqlCommand cmd = coon.CreateCommand();
                 cmd.CommandType = CommandType.StoredProcedure;

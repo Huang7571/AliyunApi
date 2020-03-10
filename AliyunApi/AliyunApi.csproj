@@ -160,6 +160,9 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MerchantAPIController.cs" />
+    <Compile Include="Controllers\OrderForm2Controller.cs" />
+    <Compile Include="Controllers\OrderForm3Controller.cs" />
+    <Compile Include="Controllers\OrderFormController.cs" />
     <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -170,13 +173,17 @@
     <Compile Include="Models\Administratorsgroup.cs" />
     <Compile Include="Models\BigType.cs" />
     <Compile Include="Models\DBHelper.cs" />
+    <Compile Include="Models\logistics.cs" />
     <Compile Include="Models\MenuInfo.cs" />
     <Compile Include="Models\Merchant.cs" />
+    <Compile Include="Models\orderform.cs" />
     <Compile Include="Models\PageModel.cs" />
     <Compile Include="Models\Pager.cs" />
     <Compile Include="Models\PermissionTypes.cs" />
+    <Compile Include="Models\pShowModel.cs" />
     <Compile Include="Models\ReturnModel.cs" />
     <Compile Include="Models\Shop.cs" />
+    <Compile Include="Models\Showlogistics.cs" />
     <Compile Include="Models\SmallType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

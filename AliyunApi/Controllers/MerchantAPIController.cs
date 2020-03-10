@@ -9,12 +9,12 @@ using AliyunApi.Models;
 using Newtonsoft.Json;
 using Dapper;
 using System.Data;
-
+using System.Configuration;
 namespace AliyunApi.Controllers
 {
 	public class MerchantAPIController : ApiController
 	{
-		SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=ShopingOA;Integrated Security=True");
+		SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Sqlconn"].ToString());
 		/// <summary>
 		/// 登录
 		/// </summary>

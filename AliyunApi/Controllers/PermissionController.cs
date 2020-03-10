@@ -9,11 +9,12 @@ using System.Data.SqlClient;
 using System.Reflection;
 using System.Data;
 using Newtonsoft.Json;
+using System.Configuration;
 namespace AliyunApi.Controllers
 {
 	public class PermissionController : ApiController
 	{
-		SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=ShopingOA;Integrated Security=True");
+		SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Sqlconn"].ToString());
 		/// <summary>
 		/// 显示权限晋力
 		/// </summary>
